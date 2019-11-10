@@ -30,6 +30,11 @@ export const reducer = (state, action) => {
       };
 
     case Actions.PURCHASE:
+      console.log({
+        money: state.moneyOnHand,
+        price: action.payload,
+        remainder: state.moneyOnHand - action.payload,
+      });
       return {
         ...state,
         moneyOnHand: state.moneyOnHand - action.payload,

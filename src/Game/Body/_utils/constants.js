@@ -1,38 +1,58 @@
 export const BASE_PRICES = {
   // BREAD
-  breadRefill: 50,
-  breadUpgrade: 150,
+  Bread: {
+    refill: 50,
+    upgrade: 150,
+  },
   // CONDIMENTS
-  condimentsRefill: 50,
-  condimentsUpgrade: 150,
+  Condiments: {
+    refill: 50,
+    upgrade: 150,
+  },
   // VEGETABLES
-  vegetableUnlock: 100,
-  vegetableRefill: 60,
-  vegetableUpgrade: 160,
+  Vegetables: {
+    refill: 60,
+    upgrade: 150,
+    unlock: 100,
+  },
   // CHEESE
-  cheeseUnlock: 150,
-  cheeseRefill: 75,
-  cheeseUpgrade: 175,
+  Cheese: {
+    refill: 75,
+    upgrade: 175,
+    unlock: 150,
+  },
   // MEAT
-  meatUnlock: 200,
-  meatRefill: 95,
-  meatUpgrade: 195,
+  Meat: {
+    refill: 95,
+    upgrade: 195,
+    unlock: 200,
+  },
 };
 
 export const MULTIPLIERS = {
   // BREAD
-  breadRefill: 1.04,
-  breadUpgrade: 1.04,
+  Bread: {
+    refill: 1.04,
+    upgrade: 1.04,
+  },
   // CONDIMENTS
-  condimentsRefill: 1.04,
-  condimentsUpgrade: 1.04,
+  Condiments: {
+    refill: 1.04,
+    upgrade: 1.04,
+  },
   // VEGETABLES
-  vegetableRefill: 1.06,
-  vegetableUpgrade: 1.06,
+  Vegetables: {
+    refill: 1.06,
+    upgrade: 1.06,
+  },
   // CHEESE
-  cheeseRefill: 1.08,
-  cheeseUpgrade: 1.08,
+  Cheese: {
+    refill: 1.08,
+    upgrade: 1.08,
+  },
   // MEAT
-  meatRefill: 1.1,
-  meatUpgrade: 1.1,
+  Meat: {
+    refill: 1.1,
+    upgrade: 1.1,
+  },
 };
