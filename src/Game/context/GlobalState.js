@@ -5,6 +5,13 @@ export const DefaultGlobalState = {
   sandwichCount: 0,
   gameActive: false,
   moneyOnHand: 1000000,
+  supply: {
+    Bread: {},
+    Condiments: {},
+    Vegetables: {},
+    Cheese: {},
+    Meat: {},
+  },
 };
 
 export const Context = React.createContext();
@@ -13,6 +20,14 @@ export const Actions = {
   UPDATE_NAME: 'UPDATE_NAME',
   ACTIVATE_GAME: 'ACTIVATE_GAME',
   PURCHASE: 'PURCHASE',
+};
+
+export const Items = {
+  BREAD: 'Bread',
+  CONDIMENTS: 'Condiments',
+  VEGETABLES: 'Vegetables',
+  CHEESE: 'Cheese',
+  MEAT: 'Meat',
 };
 
 export const reducer = (state, action) => {
