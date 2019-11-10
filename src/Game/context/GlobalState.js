@@ -12,6 +12,7 @@ export const Context = React.createContext();
 export const Actions = {
   UPDATE_NAME: 'UPDATE_NAME',
   ACTIVATE_GAME: 'ACTIVATE_GAME',
+  PURCHASE: 'PURCHASE',
 };
 
 export const reducer = (state, action) => {
@@ -26,6 +27,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         gameActive: action.payload,
+      };
+
+    case Actions.PURCHASE:
+      return {
+        ...state,
+        moneyOnHand: state.moneyOnHand - action.payload,
       };
   
     default:

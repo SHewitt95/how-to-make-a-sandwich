@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { Context } from '../../../context/GlobalState';
+import React, { useState, useEffect } from 'react';
 import { convertToMoney } from '../../helpers';
+import PurchaseButton from '../../PurchaseButton';
 
 const UNLOCKED_ITEMS = {
   Bread: true,
@@ -8,7 +8,6 @@ const UNLOCKED_ITEMS = {
 };
 
 const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
-  const [state] = useContext(Context);
   const [unlocked, setUnlock] = useState(false);
 
   useEffect(() => {
@@ -21,9 +20,9 @@ const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
     <div>
       <p>{`${itemName}`}</p>
       {/* {unlocked && <p>{`${currentCount} / ${maxAmount}`}</p>} */}
-      {!unlocked && unlockPrice && <button onClick={() => setUnlock(true)} disabled={state.moneyOnHand < unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</button>}
-      {unlocked && refillPrice && <button disabled={state.moneyOnHand < refillPrice}>{`Refill: ${convertToMoney(refillPrice)}`}</button>}
-      {unlocked && upgradePrice && <button disabled={state.moneyOnHand < upgradePrice}>{`Upgrade: ${convertToMoney(upgradePrice)}`}</button>}
+      {!unlocked && unlockPrice && <PurchaseButton onClick={() => setUnlock(true)} price={unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</PurchaseButton>}
+      {unlocked && refillPrice && <PurchaseButton price={refillPrice}>{`Refill: ${convertToMoney(refillPrice)}`}</PurchaseButton>}
+      {unlocked && upgradePrice && <PurchaseButton price={upgradePrice}>{`Upgrade: ${convertToMoney(upgradePrice)}`}</PurchaseButton>}
     </div>
   );
 }
