@@ -9,6 +9,7 @@ const Header = () => {
       {!state.username && <form onSubmit={event => {
         event.preventDefault();
         dispatch({ type: Actions.UPDATE_NAME, payload: inputValue });
+        dispatch({ type: Actions.ACTIVATE_GAME, payload: true });
       }}>
         <label>Who is the business owner?</label>
         <input required={true} onChange={event => changeInput(event.target.value)} value={inputValue} placeholder="Enter your name here" />
