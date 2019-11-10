@@ -9,6 +9,33 @@ const UNLOCKED_ITEMS = {
   Condiments: true,
 };
 
+const getItemType = level => {
+  const TYPES = {
+    0: 'Really Old',
+    1: 'Not as Old',
+    2: 'Old',
+    3: 'Decent',
+    4: 'OK',
+    5: 'Good',
+    6: 'Better',
+    7: 'Best',
+    8: 'Good Best',
+    9: 'Better Best',
+    10: 'Best Best',
+    11: 'Good Best Best',
+    12: 'Better Best Best',
+    13: 'Best Best Best',
+    14: 'Supernatural',
+    15: 'Divine',
+    16: "Not quite sure if it's actually",
+    17: 'Sentient',
+    18: 'Transcendent',
+    19: 'Mind Control',
+  };
+  const MAX = Object.keys(TYPES).length - 1;
+  return TYPES[level] || TYPES[MAX];
+}
+
 const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
   const [unlocked, setUnlock] = useState(false);
   const [level, upLevel] = useState(0);
@@ -28,7 +55,7 @@ const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
 
   return (
     <div>
-      <p>{`${itemName}`}</p>
+      <p>{`${getItemType(level)} ${itemName}`}</p>
       {unlocked && <p>{`${Inventory.inventory} / ${Inventory.maxInventory}`}</p>}
       {!unlocked && unlockPrice && <PurchaseButton onClick={() => setUnlock(true)} price={unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</PurchaseButton>}
       {unlocked && refillPrice && <PurchaseButton customDisable={Inventory.inventory === Inventory.maxInventory} onClick={() => dispatch({ type: Actions.REFILL_ITEM, payload: itemName })} price={refillPriceProp}>{`Refill: ${convertToMoney(refillPriceProp)}`}</PurchaseButton>}
