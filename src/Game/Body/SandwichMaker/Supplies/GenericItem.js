@@ -11,8 +11,8 @@ const UNLOCKED_ITEMS = {
 const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
   const [unlocked, setUnlock] = useState(false);
   const [level, upLevel] = useState(0);
+  
   const mults = MULTIPLIERS[itemName];
-
   const upgradePriceProp = calculateScalePriceFloat(upgradePrice, mults.upgrade, level);
   const refillPriceProp = calculateScalePriceFloat(refillPrice, mults.refill, level);
 

@@ -32,27 +32,27 @@ export const BASE_PRICES = {
 export const MULTIPLIERS = {
   // BREAD
   Bread: {
-    refill: 1.04,
-    upgrade: 1.04,
+    refill: 2.04,
+    upgrade: 2.04,
   },
   // CONDIMENTS
   Condiments: {
-    refill: 1.04,
-    upgrade: 1.04,
+    refill: 2.04,
+    upgrade: 2.04,
   },
   // VEGETABLES
   Vegetables: {
-    refill: 1.06,
-    upgrade: 1.06,
+    refill: 2.06,
+    upgrade: 2.06,
   },
   // CHEESE
   Cheese: {
-    refill: 1.08,
-    upgrade: 1.08,
+    refill: 2.08,
+    upgrade: 2.08,
   },
   // MEAT
   Meat: {
-    refill: 1.1,
-    upgrade: 1.1,
+    refill: 2.1,
+    upgrade: 2.1,
   },
 };
