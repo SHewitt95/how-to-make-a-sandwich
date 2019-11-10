@@ -8,7 +8,7 @@ export const DefaultGlobalState = {
   supply: {
     Bread: {
       unlocked: true,
-      inventory: 10,
+      inventory: 100,
       maxInventory: 100,
     },
     Condiments: {
@@ -116,14 +116,28 @@ export const reducer = (state, action) => {
 
     case Actions.MAKE_SANDWICH:
       const items = Object.keys(state.supply);
+      // const usedToppings = [];
       items.forEach(itemName => {
         const item = state.supply[itemName];
         if (itemName === Items.BREAD) {
           item.inventory -= 2;
-        } else if (item.unlocked) {
+        } else if (item.unlocked && item.inventory > 0) {
           item.inventory -= 1;
+          // usedToppings.push(itemName);
         }
       });
+      state.sandwichCount += 1;
+
+      // let onlyBread = true;
+      // usedToppings.forEach(topping => {
+      //   const item = state.supply[topping];
+      //   if (item.inventory > 0) {
+      //     state[`sandwichCount${topping}`] += 1;
+      //     onlyBread = false;
+      //   }
+      // });
+
+      // if (onlyBread) state.sandwichCountBread += 1;
 
       console.log(state);
 
