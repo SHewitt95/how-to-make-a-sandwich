@@ -7,7 +7,7 @@ const PurchaseButton = ({ children, onClick, price, ...restProps }) => {
     <button 
     disabled={state.moneyOnHand < price}
     onClick={() => {
-      onClick();
+      if (typeof onClick === 'function') onClick();
       dispatch({ type: Actions.PURCHASE, payload: price });
     }} {...restProps}>{children}</button>
   );
