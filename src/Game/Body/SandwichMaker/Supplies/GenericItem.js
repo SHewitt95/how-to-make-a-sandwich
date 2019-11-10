@@ -9,6 +9,7 @@ const UNLOCKED_ITEMS = {
 
 const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
   const [unlocked, setUnlock] = useState(false);
+  const [level, upgradeLevel] = useState(0);
 
   useEffect(() => {
     if (UNLOCKED_ITEMS[itemName]) {
@@ -22,7 +23,7 @@ const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
       {/* {unlocked && <p>{`${currentCount} / ${maxAmount}`}</p>} */}
       {!unlocked && unlockPrice && <PurchaseButton onClick={() => setUnlock(true)} price={unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</PurchaseButton>}
       {unlocked && refillPrice && <PurchaseButton price={refillPrice}>{`Refill: ${convertToMoney(refillPrice)}`}</PurchaseButton>}
-      {unlocked && upgradePrice && <PurchaseButton price={upgradePrice}>{`Upgrade: ${convertToMoney(upgradePrice)}`}</PurchaseButton>}
+      {unlocked && upgradePrice && <PurchaseButton onClick={() => upgradeLevel(level + 1)} price={upgradePrice}>{`Upgrade: ${convertToMoney(upgradePrice)}`}</PurchaseButton>}
     </div>
   );
 }
