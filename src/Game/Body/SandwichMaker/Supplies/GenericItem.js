@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { convertToMoney } from '../../helpers';
+import { convertToMoney } from '../../_utils/helpers';
 import PurchaseButton from '../../PurchaseButton';
 
 const UNLOCKED_ITEMS = {

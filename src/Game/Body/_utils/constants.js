@@ -1,5 +1,3 @@
-export const convertToMoney = (number) => `$${Number.parseFloat(number).toFixed(2)}`;
-
 export const BASE_PRICES = {
   suppliesRefill: 50,
   suppliesUpgrade: 150,
