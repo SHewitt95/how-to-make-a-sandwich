@@ -37,11 +37,10 @@ const getItemType = level => {
 }
 
 const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
-  const [unlocked, setUnlock] = useState(false);
   const [level, upLevel] = useState(0);
   const [state, dispatch] = useContext(Context);
 
-  const Inventory = state.supply[itemName];
+  const { unlocked, inventory, maxInventory } = state.supply[itemName];
 
   const mults = MULTIPLIERS[itemName];
   const upgradePriceProp = calculateScalePriceFloat(upgradePrice, mults.upgrade, level);
@@ -49,16 +48,16 @@ const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
 
   useEffect(() => {
     if (UNLOCKED_ITEMS[itemName]) {
-      setUnlock(true);
+      dispatch({ type: Actions.UNLOCK_ITEM, payload: itemName });
     }
-  }, [itemName]);
+  }, [dispatch, itemName]);
 
   return (
     <div>
       <p>{`${getItemType(level)} ${itemName}`}</p>
-      {unlocked && <p>{`${Inventory.inventory} / ${Inventory.maxInventory}`}</p>}
-      {!unlocked && unlockPrice && <PurchaseButton onClick={() => setUnlock(true)} price={unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</PurchaseButton>}
-      {unlocked && refillPrice && <PurchaseButton customDisable={Inventory.inventory === Inventory.maxInventory} onClick={() => dispatch({ type: Actions.REFILL_ITEM, payload: itemName })} price={refillPriceProp}>{`Refill: ${convertToMoney(refillPriceProp)}`}</PurchaseButton>}
+      {unlocked && <p>{`${inventory} / ${maxInventory}`}</p>}
+      {!unlocked && unlockPrice && <PurchaseButton onClick={() => dispatch({ type: Actions.UNLOCK_ITEM, payload: itemName })} price={unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</PurchaseButton>}
+      {unlocked && refillPrice && <PurchaseButton customDisable={inventory === maxInventory} onClick={() => dispatch({ type: Actions.REFILL_ITEM, payload: itemName })} price={refillPriceProp}>{`Refill: ${convertToMoney(refillPriceProp)}`}</PurchaseButton>}
       {unlocked && upgradePrice && <PurchaseButton onClick={() => {
           upLevel(level + 1);
           dispatch({ type: Actions.UPGRADE_ITEM, payload: itemName });

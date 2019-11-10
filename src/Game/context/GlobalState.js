@@ -7,22 +7,27 @@ export const DefaultGlobalState = {
   moneyOnHand: 1000000,
   supply: {
     Bread: {
-      inventory: 100,
+      unlocked: true,
+      inventory: 10,
       maxInventory: 100,
     },
     Condiments: {
+      unlocked: true,
       inventory: 100,
       maxInventory: 100,
     },
     Vegetables: {
+      unlocked: false,
       inventory: 100,
       maxInventory: 100,
     },
     Cheese: {
+      unlocked: false,
       inventory: 100,
       maxInventory: 100,
     },
     Meat: {
+      unlocked: false,
       inventory: 100,
       maxInventory: 100,
     },
@@ -37,6 +42,8 @@ export const Actions = {
   PURCHASE: 'PURCHASE',
   UPGRADE_ITEM: 'UPGRADE_ITEM',
   REFILL_ITEM: 'REFILL_ITEM',
+  MAKE_SANDWICH: 'MAKE_SANDWICH',
+  UNLOCK_ITEM: 'UNLOCK_ITEM',
 };
 
 export const Items = {
@@ -72,6 +79,17 @@ export const reducer = (state, action) => {
         moneyOnHand: state.moneyOnHand - action.payload,
       };
 
+    case Actions.UNLOCK_ITEM:
+      const itemToUnlock = state.supply[action.payload];
+      itemToUnlock.unlocked = true;
+
+      return {
+        ...state,
+        supply: {
+          ...state.supply,
+        },
+      };
+
     case Actions.UPGRADE_ITEM:
       const itemToUpgrade = state.supply[action.payload];
       itemToUpgrade.maxInventory = itemToUpgrade.maxInventory * 10;
@@ -95,6 +113,26 @@ export const reducer = (state, action) => {
           ...state.supply,
         },
       }
+
+    case Actions.MAKE_SANDWICH:
+      const items = Object.keys(state.supply);
+      items.forEach(itemName => {
+        const item = state.supply[itemName];
+        if (itemName === Items.BREAD) {
+          item.inventory -= 2;
+        } else if (item.unlocked) {
+          item.inventory -= 1;
+        }
+      });
+
+      console.log(state);
+
+      return {
+        ...state,
+        supply: {
+          ...state.supply,
+        }
+      };
   
     default:
       return state;
