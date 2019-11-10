@@ -1,4 +1,4 @@
-export const convertToMoney = (number = 0) => `$${Number.parseFloat(number).toFixed(2)}`;
+export const convertToMoney = (number = 0) => `$${numberWithCommas(Number.parseFloat(number).toFixed(2))}`;
 
 export const convertToInteger = (number = 0) => Math.floor(number);
 
@@ -24,4 +24,8 @@ export const haveEnoughInventory = state => {
     }
   });
   return enoughInventory;
+}
+
+export const numberWithCommas = (number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
