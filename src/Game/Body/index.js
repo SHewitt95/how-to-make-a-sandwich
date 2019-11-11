@@ -11,7 +11,7 @@ const Body = () => {
   const [state, dispatch] = useContext(Context);
 
   useInterval(() => {
-    if (Math.random() > 0.6) dispatch({ type: Actions.BUY_SANDWICH });
+    if (Math.random() > 0.3) dispatch({ type: Actions.BUY_SANDWICH });
   }, 100);
 
   return (

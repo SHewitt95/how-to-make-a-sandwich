@@ -168,7 +168,7 @@ export const DefaultGlobalState = {
   sandwichPrice: 10,
   sandwichInventoryCount: 0,
   gameActive: false,
-  moneyOnHand: 10000000,
+  moneyOnHand: 1000,
   employeeCount: 0,
   employeeTypes: {
     Basic: {
