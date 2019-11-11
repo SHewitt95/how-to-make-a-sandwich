@@ -40,6 +40,7 @@ const EmployeeManager = () => {
   const [totalPayroll, setPayroll] = useState(0);
   const [daysUntilPayroll, setDaysUntilPayroll] = useState(0);
   const [totalSandwichProductionRate, setTotalSandwichProductionRate] = useState(0);
+  const [accumulatedSandwich, setAccumulatedSandwich] = useState(0.0);
 
   useEffect(() => setPayroll(calculatePayroll(employeeTypes)), [employeeTypes]);
 
@@ -50,9 +51,14 @@ const EmployeeManager = () => {
   }, [state.employeeCount, employeeTypes]);
 
   useInterval(() => {
-    console.log({totalSandwichProductionRate})
-    dispatch({ type: Actions.MAKE_SANDWICH, payload: Math.floor(totalSandwichProductionRate) })
-  }, 1000);
+    if (state.employeeCount > 0) {
+      setAccumulatedSandwich(accumulatedSandwich + (totalSandwichProductionRate/100));
+      if (accumulatedSandwich >= 1.0) {
+        dispatch({ type: Actions.MAKE_SANDWICH, payload: Math.floor(accumulatedSandwich) });
+        setAccumulatedSandwich(accumulatedSandwich - 1);
+      }
+    }
+  }, 10);
 
   useInterval(() => {
     if (state.employeeCount > 0) {
