@@ -72,21 +72,21 @@ export const EMPLOYEE_BASE_SALARY = {
   Basic: {
     fee: 100,
     salary: 50,
-    sandwichesPerSecond: 0.2,
+    sandwichesPerSecond: 1,
   },
   Manager: {
     fee: 200,
     salary: 150,
-    sandwichesPerSecond: 1.0,
+    sandwichesPerSecond: 5,
   },
   Director: {
     fee: 400,
     salary: 450,
-    sandwichesPerSecond: 5,
+    sandwichesPerSecond: 50,
   },
   Executive: {
     fee: 800,
     salary: 1350,
-    sandwichesPerSecond: 25,
+    sandwichesPerSecond: 250,
   },
 };
