@@ -86,11 +86,13 @@ export const reducer = (state, action) => {
       }
 
     case Actions.MAKE_SANDWICH:
-      if (state.supply[Items.BREAD].inventory === 0) return state;
-      console.log()
+      if (state.supply[Items.BREAD].inventory === 0 || state.supply[Items.BREAD].inventory < action.payload) return state;
+
       const items = Object.keys(state.supply);
       let sandwichMade = false;
+
       const decrement = (!isNaN(action.payload) || action.payload > 0) ? action.payload : 1;
+
       items.forEach(itemName => {
         const item = state.supply[itemName];
         if (item.inventory > 0) {
@@ -98,6 +100,8 @@ export const reducer = (state, action) => {
           if (itemName === Items.BREAD) {
             const tempVal = item.inventory - (decrement * 2);
             item.inventory = tempVal < 0 ?  item.inventory : item.inventory - (decrement * 2);
+            Math.floor(item.inventory);
+            if (item.inventory % 2 !== 0) item.inventory -= 1;
             sandwichMade = tempVal > 0;
           } else if (item.unlocked) {
             const tempVal = item.inventory - decrement;
