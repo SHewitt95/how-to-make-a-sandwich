@@ -59,7 +59,7 @@ export const numberOfAvailableInventory = state => {
   let number = 0;
   supplyItems.forEach(itemName => {
     const item = state.supply[itemName];
-    if (item.unlocked && item.inventory > 0) {
+    if (item.unlocked) {
       number = number + item.level;
       if (itemName !== Items.BREAD) number += 1;
     }
