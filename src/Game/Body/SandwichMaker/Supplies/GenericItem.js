@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { convertToMoney, calculateScalePriceFloat } from '../../_utils/helpers';
+import { convertToMoney, calculateScalePriceFloat, numberWithCommas } from '../../_utils/helpers';
 import { Context, Actions } from '../../../context/GlobalState';
 import { MULTIPLIERS } from '../../_utils/constants';
 import PurchaseButton from '../../PurchaseButton';
@@ -55,12 +55,12 @@ const GenericItem = ({ itemName, unlockPrice, refillPrice, upgradePrice }) => {
   return (
     <div>
       <p>{`${getItemType(level)} ${itemName}`}</p>
-      {unlocked && <p>{`${inventory} / ${maxInventory}`}</p>}
+      {unlocked && <p>{`${numberWithCommas(inventory)} / ${numberWithCommas(maxInventory)}`}</p>}
       {!unlocked && unlockPrice && <PurchaseButton onClick={() => dispatch({ type: Actions.UNLOCK_ITEM, payload: itemName })} price={unlockPrice}>{`Unlock: ${convertToMoney(unlockPrice)}`}</PurchaseButton>}
       {unlocked && refillPrice && <PurchaseButton customDisable={inventory === maxInventory} onClick={() => dispatch({ type: Actions.REFILL_ITEM, payload: itemName })} price={refillPriceProp}>{`Refill: ${convertToMoney(refillPriceProp)}`}</PurchaseButton>}
       {unlocked && upgradePrice && <PurchaseButton onClick={() => {
           upLevel(level + 1);
-          dispatch({ type: Actions.UPGRADE_ITEM, payload: itemName });
+          dispatch({ type: Actions.UPGRADE_ITEM, payload: itemName, level });
         }} 
         price={upgradePriceProp}>{`Upgrade: ${convertToMoney(upgradePriceProp)}`}</PurchaseButton>}
     </div>
