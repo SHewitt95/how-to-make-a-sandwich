@@ -67,3 +67,26 @@ export const SANDWICH_VALUES = {
   price: 5,
   priceMultiplier: 1.25,
 };
+
+export const EMPLOYEE_BASE_SALARY = {
+  Basic: {
+    fee: 100,
+    salary: 50,
+    sandwichesPerSecond: 0.2,
+  },
+  Manager: {
+    fee: 200,
+    salary: 150,
+    sandwichesPerSecond: 1.0,
+  },
+  Director: {
+    fee: 400,
+    salary: 450,
+    sandwichesPerSecond: 5,
+  },
+  Executive: {
+    fee: 800,
+    salary: 1350,
+    sandwichesPerSecond: 25,
+  },
+};

@@ -13,6 +13,8 @@ export const Actions = {
   MAKE_SANDWICH: 'MAKE_SANDWICH',
   UNLOCK_ITEM: 'UNLOCK_ITEM',
   BUY_SANDWICH: 'BUY_SANDWICH',
+  HIRE_EMPLOYEE: 'HIRE_EMPLOYEE',
+  PAY_PAYROLL: 'PAY_PAYROLL',
 };
 
 export const Items = {
@@ -21,6 +23,7 @@ export const Items = {
   VEGETABLES: 'Vegetables',
   CHEESE: 'Cheese',
   MEAT: 'Meat',
+
 };
 
 export const reducer = (state, action) => {
@@ -84,40 +87,33 @@ export const reducer = (state, action) => {
 
     case Actions.MAKE_SANDWICH:
       if (state.supply[Items.BREAD].inventory === 0) return state;
+      console.log()
       const items = Object.keys(state.supply);
       let sandwichMade = false;
-      // const usedToppings = [];
+      const decrement = (!isNaN(action.payload) || action.payload > 0) ? action.payload : 1;
       items.forEach(itemName => {
         const item = state.supply[itemName];
         if (item.inventory > 0) {
           sandwichMade = true;
           if (itemName === Items.BREAD) {
-            item.inventory -= 2;
+            const tempVal = item.inventory - (decrement * 2);
+            item.inventory = tempVal < 0 ?  item.inventory : item.inventory - (decrement * 2);
+            sandwichMade = tempVal > 0;
           } else if (item.unlocked) {
-            item.inventory -= 1;
-            // usedToppings.push(itemName);
+            const tempVal = item.inventory - decrement;
+            item.inventory =  tempVal < 0 ? item.inventory : item.inventory - decrement;
+            sandwichMade = tempVal > 0;
           }
         }
       });
 
       if (sandwichMade) {
-        state.sandwichCount += 1;
-        state.sandwichInventoryCount += 1;
+        const increment = (!isNaN(action.payload) || action.payload > 0) ? action.payload : 1;
+        state.sandwichCount += increment;
+        state.sandwichInventoryCount += increment;
       }
 
       state.sandwichPrice = getNewSandwichPrice();
-      
-
-      // let onlyBread = true;
-      // usedToppings.forEach(topping => {
-      //   const item = state.supply[topping];
-      //   if (item.inventory > 0) {
-      //     state[`sandwichCount${topping}`] += 1;
-      //     onlyBread = false;
-      //   }
-      // });
-
-      // if (onlyBread) state.sandwichCountBread += 1;
 
       return {
         ...state,
@@ -135,6 +131,27 @@ export const reducer = (state, action) => {
       return {
         ...state,
       };
+
+    case Actions.HIRE_EMPLOYEE:
+      const newState = {
+        ...state,
+        employeeCount: state.employeeCount + 1,
+        employeeTypes: {
+          ...state.employeeTypes,
+          [action.payload.eType]: {
+            ...state.employeeTypes[action.payload.eType],
+            count: state.employeeTypes[action.payload.eType].count + 1,
+          }
+        }
+      }
+      return newState;
+
+    case Actions.PAY_PAYROLL:
+      if (state.moneyOnHand < action.payload) return state;
+      return {
+        ...state,
+        moneyOnHand: state.moneyOnHand -= action.payload,
+      }
   
     default:
       return state;
@@ -147,8 +164,30 @@ export const DefaultGlobalState = {
   sandwichPrice: 10,
   sandwichInventoryCount: 0,
   gameActive: false,
-  moneyOnHand: 100,
-  lockedSupply: [Items.VEGETABLES, Items.CHEESE, Items.MEAT],
+  moneyOnHand: 10000000,
+  employeeCount: 0,
+  employeeTypes: {
+    Basic: {
+      unlocked: true,
+      count: 0,
+      level: 0,
+    },
+    Manager: {
+      unlocked: false,
+      count: 0,
+      level: 0,
+    },
+    Director: {
+      unlocked: false,
+      count: 0,
+      level: 0,
+    },
+    Executive: {
+      unlocked: false,
+      count: 0,
+      level: 0,
+    },
+  },
   supply: {
     Bread: {
       unlocked: true,
