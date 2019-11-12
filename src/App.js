@@ -1,10 +1,11 @@
 import React from 'react';
-import Game from './Game';
+// import Game from './Game';
+import Game02 from './Game02';
 import './App.css';
 
 function App() {
   return (
-    <Game />
+    <Game02 />
   );
 }
 
