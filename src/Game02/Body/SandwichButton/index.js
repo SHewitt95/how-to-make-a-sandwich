@@ -12,7 +12,7 @@ const disableHoldingEnter = event => {
 const SandwichButton = () => {
   const [, dispatch] = useContext(Context);
   return (
-    <button onClick={() => dispatch({ type: Actions.MAKE_SANDWICH })} onKeyDown={disableHoldingEnter}>Make Sandwich</button>
+    <button onClick={() => dispatch({ type: Actions.MAKE_SANDWICH })} onKeyDown={disableHoldingEnter}>make a sandwich</button>
   );
 }
 
