@@ -3,16 +3,16 @@ import Context from '../data/context';
 
 const Header = () => {
   const [state] = useContext(Context);
-  const { sandwichCount } = state;
+  const { peopleCount } = state;
 
   useEffect(() => {
-    document.title = `${sandwichCount} sandwich${sandwichCount === 1 ? '' : 'es'} - how to make a sandwich`;
-  }, [sandwichCount])
+    document.title = `${peopleCount} people without a sandwich - how to make a sandwich`;
+  }, [peopleCount])
 
   return (
     <header>
       <h1>how to make a sandwich</h1>
-      <p>sandwiches: {sandwichCount}</p>
+      <p>people without a sandwich: {peopleCount}</p>
     </header>
   );
 }

@@ -1,5 +1,5 @@
 const DefaultState = {
-  sandwichCount: 0,
+  peopleCount: 7700000000, // World population, approximately
 };
 
 export default DefaultState;

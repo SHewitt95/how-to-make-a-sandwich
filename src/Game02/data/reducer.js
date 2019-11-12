@@ -5,9 +5,9 @@ const reducer = (state, action) => {
     case Actions.MAKE_SANDWICH:
       return {
         ...state,
-        sandwichCount: state.sandwichCount += 1,
+        peopleCount: state.peopleCount -= 1,
       };
-    
+      
     default:
       return state;
   }
