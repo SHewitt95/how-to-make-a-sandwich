@@ -1,3 +1,5 @@
-import { createContext } from 'react';
+const DefaultState = {
+  sandwichCount: 0,
+};
 
-export const Context = createContext();
+export default DefaultState;
