@@ -8,6 +8,12 @@ const reducer = (state, action) => {
         peopleCount: state.peopleCount -= 1,
       };
       
+    case Actions.UP_PLAYER_LEVEL:
+      return {
+        ...state,
+        playerLevel: state.playerLevel += action.payload,
+      };
+
     default:
       return state;
   }

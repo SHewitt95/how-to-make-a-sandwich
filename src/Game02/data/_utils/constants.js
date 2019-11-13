@@ -1,3 +1,6 @@
 export const Actions = {
   MAKE_SANDWICH: 'MAKE_SANDWICH',
+  UP_PLAYER_LEVEL: 'UP_PLAYER_LEVEL',
 };
+
+export const MAX_NUMBER = 7700000000;
