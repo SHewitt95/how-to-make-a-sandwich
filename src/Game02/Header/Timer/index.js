@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useInterval } from '../../Body/HelpersList';
 
+const getPlural = (number = 0, pluralForm = 's') => `${number === 1 ? '' : pluralForm}`;
+
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -23,7 +25,7 @@ const Timer = () => {
   }, hour);
 
   return (
-    <p>Time taken: {`${hours} hour${hours === 1 ? '' : 's'}, ${minutes} minute${minutes === 1 ? '' : 's'} and ${seconds} second${seconds === 1 ? '' : 's'}.`}</p>
+    <p>Time taken: {`${hours} hour${getPlural(hours)}, ${minutes} minute${getPlural(minutes)} and ${seconds} second${getPlural(seconds)}.`}</p>
   );
 };
 
