@@ -28,7 +28,7 @@ const UpgradeStepper = () => {
     if (currentValue >= threshold) {
       dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
     }
-  }, [currentValue, threshold]);
+  }, [currentValue, threshold, dispatch]);
 
   return (
     <>
