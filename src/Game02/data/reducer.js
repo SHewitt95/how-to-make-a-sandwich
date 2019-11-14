@@ -5,7 +5,7 @@ const reducer = (state, action) => {
     case Actions.MAKE_SANDWICH:
       return {
         ...state,
-        peopleCount: state.peopleCount -= 1,
+        peopleCount: state.peopleCount -= (action.payload || 1),
       };
       
     case Actions.UP_PLAYER_LEVEL:
