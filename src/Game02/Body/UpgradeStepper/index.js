@@ -1,24 +1,26 @@
 import React, { useState, useContext, useEffect } from 'react';
-import upgradeThresholds from './upgrades';
 import Context from '../../data/context';
 import { MAX_NUMBER, Actions } from '../../data/_utils/constants';
 
+const convertToFloat = (number = 0, accuracy = 2) => Number.parseFloat(number).toFixed(accuracy);
+const calculateScalePrice = (baseCost = 0, multiplier = 0, unitCount = 0) => {
+  return unitCount ? baseCost + Math.pow(multiplier, unitCount) : baseCost;
+}
+const calculateScalePriceFloat = (baseCost = 0, multiplier = 0, unitCount = 0, accuracy = 2) => {
+  return convertToFloat(calculateScalePrice(baseCost, multiplier, unitCount), accuracy);
+}
+
 const UpgradeStepper = () => {
   const [state, dispatch] = useContext(Context);
-  const [threshold, setThreshold] = useState(upgradeThresholds[state.playerLevel]);
+  const [threshold, setThreshold] = useState(10);
   const [currentValue, setCurrentValue] = useState(MAX_NUMBER - state.peopleCount);
 
   useEffect(() => {
-    setCurrentValue(currentValue + 1);
-    // eslint-disable-next-line
+    setCurrentValue(MAX_NUMBER - state.peopleCount);
   }, [state.peopleCount]);
 
   useEffect(() => {
-    setThreshold(upgradeThresholds[state.playerLevel]);
-  }, [state.playerLevel]);
-
-  useEffect(() => {
-    setCurrentValue(0);
+    setThreshold(calculateScalePriceFloat(10, 2.5, state.playerLevel, 0));
   }, [state.playerLevel]);
 
   return (
