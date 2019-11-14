@@ -23,6 +23,13 @@ const UpgradeStepper = () => {
     setThreshold(calculateScalePriceFloat(10, 2.5, state.playerLevel, 0));
   }, [state.playerLevel]);
 
+  // Auto "Ask for Help"
+  useEffect(() => {
+    if (currentValue >= threshold) {
+      dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
+    }
+  }, [currentValue, threshold]);
+
   return (
     <>
       <progress max={threshold} value={currentValue}> 70% </progress>
