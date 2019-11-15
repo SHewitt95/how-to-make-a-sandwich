@@ -3,6 +3,7 @@ import SandwichTracker from './SandwichTracker';
 import SandwichButton from './SandwichButton';
 import UpgradeStepper from './UpgradeStepper';
 import HelpersList from './HelpersList';
+import AchievementAnnouncer from './AchievementAnnouncer';
 
 const Body = () => {
   return (
@@ -11,6 +12,7 @@ const Body = () => {
       <SandwichButton />
       <UpgradeStepper />
       <HelpersList />
+      <AchievementAnnouncer />
     </>
   );
 }
