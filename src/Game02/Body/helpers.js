@@ -7,3 +7,7 @@ export const calculateScalePrice = (baseCost = 0, multiplier = 0, unitCount = 0)
 export const calculateScalePriceFloat = (baseCost = 0, multiplier = 0, unitCount = 0, accuracy = 2) => {
   return convertToFloat(calculateScalePrice(baseCost, multiplier, unitCount), accuracy);
 }
+
+export const numberWithCommas = (number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
