@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import ProgressBar from './ProgressBar';
-import { useThreshold, useCurrentSandwichCount } from '../hooks';
+import { useThreshold, useCurrentSandwichCount, useAutoPlayerLevelUpdate } from '../hooks';
 import Context from '../../data/context';
 import { Actions } from '../../data/_utils/constants';
 
@@ -13,11 +13,7 @@ const UpgradeStepper = () => {
   const currentValue = useCurrentSandwichCount();
 
   // Auto "Ask for Help"
-  useEffect(() => {
-    if (currentValue >= threshold) {
-      dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
-    }
-  }, [currentValue, threshold, dispatch]);
+  useAutoPlayerLevelUpdate();
 
   return (
     <>

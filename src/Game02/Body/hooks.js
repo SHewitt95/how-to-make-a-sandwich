@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import Context from '../data/context';
-import { MAX_NUMBER } from '../data/_utils/constants';
+import { MAX_NUMBER, Actions } from '../data/_utils/constants';
 
 
 export const useThreshold = () => {
@@ -32,4 +32,16 @@ export const useCurrentSandwichCount = () => {
   }, [state.peopleCount]);
 
   return currentValue;
+};
+
+export const useAutoPlayerLevelUpdate = () => {
+  const threshold = useThreshold();
+  const currentValue = useCurrentSandwichCount();
+  const [state, dispatch] = useContext(Context);
+
+  useEffect(() => {
+    if (state.autoLevelActive && currentValue >= threshold) {
+      dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
+    }
+  }, [state.autoLevelActive, currentValue, threshold, dispatch]);
 }
