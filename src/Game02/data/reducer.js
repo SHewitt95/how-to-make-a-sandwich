@@ -14,6 +14,18 @@ const reducer = (state, action) => {
         playerLevel: state.playerLevel += action.payload,
       };
 
+    case Actions.UPGRADE_MENU_ITEM:
+      return {
+        ...state,
+        menuItems: {
+          ...state.menuItems,
+          [action.itemName]: {
+            ...state.menuItems[action.itemName],
+            level: state.menuItems[action.itemName].level += action.payload,
+          },
+        },
+      };
+
     default:
       return state;
   }

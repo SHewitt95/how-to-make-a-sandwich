@@ -1,12 +1,12 @@
 import React from 'react';
 import MenuItem from './MenuItem';
+import { Menu } from '../../data/_utils/constants'
 
-const items = ['Bread', 'Condiments', 'Cheese', 'Vegetables', 'Meat'];
 
 const SandwichMenu = () => {
   return (
     <ol>
-      {items.map(name => <MenuItem itemName={name} />)}
+      {Object.keys(Menu).map(name => <MenuItem key={`SandwichMenu_${Menu[name]}`} itemName={Menu[name]} />)}
     </ol>
   );
 };

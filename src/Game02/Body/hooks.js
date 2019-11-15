@@ -40,8 +40,8 @@ export const useAutoPlayerLevelUpdate = () => {
   const [state, dispatch] = useContext(Context);
 
   useEffect(() => {
-    if (state.autoLevelActive && currentValue >= threshold) {
+    if (state.autoPlayerLevelActive && currentValue >= threshold) {
       dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
     }
-  }, [state.autoLevelActive, currentValue, threshold, dispatch]);
+  }, [state.autoPlayerLevelActive, currentValue, threshold, dispatch]);
 }
