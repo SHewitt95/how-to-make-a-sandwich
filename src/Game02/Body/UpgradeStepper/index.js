@@ -20,7 +20,7 @@ const UpgradeStepper = () => {
   }, [state.peopleCount]);
 
   useEffect(() => {
-    setThreshold(calculateScalePriceFloat(10, 2.5, state.playerLevel, 0));
+    setThreshold(calculateScalePriceFloat(10, 2, state.playerLevel, 0));
   }, [state.playerLevel]);
 
   // Auto "Ask for Help"
