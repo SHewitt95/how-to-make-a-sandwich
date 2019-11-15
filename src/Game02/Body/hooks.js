@@ -1,22 +1,14 @@
 import { useState, useContext, useEffect } from 'react';
 import Context from '../data/context';
-import { MAX_NUMBER, Actions } from '../data/_utils/constants';
+import { MAX_NUMBER, Actions, Menu, MenuMultipliers } from '../data/_utils/constants';
+import { calculateScalePriceFloat } from './helpers';
 
 
 export const useThreshold = () => {
   const [threshold, setThreshold] = useState(10);
   const [state] = useContext(Context);
 
-  const convertToFloat = (number = 0, accuracy = 2) => Number.parseFloat(number).toFixed(accuracy);
-  const calculateScalePrice = (baseCost = 0, multiplier = 0, unitCount = 0) => {
-    return unitCount ? baseCost + Math.pow(multiplier, unitCount) : baseCost;
-  }
-
   useEffect(() => {
-    const calculateScalePriceFloat = (baseCost = 0, multiplier = 0, unitCount = 0, accuracy = 2) => {
-      return convertToFloat(calculateScalePrice(baseCost, multiplier, unitCount), accuracy);
-    }
-
     setThreshold(calculateScalePriceFloat(10, 2, state.playerLevel, 0));
   }, [state.playerLevel]);
 
@@ -44,4 +36,33 @@ export const useAutoPlayerLevelUpdate = () => {
       dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
     }
   }, [state.autoPlayerLevelActive, currentValue, threshold, dispatch]);
-}
+};
+
+export const useSandwichesPerSecondRate = () => {
+  const [sandwichesPerSecond, setsandwichesPerSecond] = useState(0);
+  const [state] = useContext(Context);
+
+  const getSandwichLevel = () => {
+    const items = Object.keys(Menu).map(key => Menu[key]);
+    let level = 0;
+    items.forEach(item => {
+      const menuItem = state.menuItems[item];
+      level += (menuItem.level * MenuMultipliers[item.toUpperCase()]);
+    })
+    return level;
+  }
+
+  const sandwichLevel = getSandwichLevel();
+  const { playerLevel } = state;
+
+  useEffect(() => {
+    const calculateSandwichesPerSecond = (sandwich, player) => {
+      return calculateScalePriceFloat(player, 1.15, sandwich, 0);
+      // return calculateScalePriceFloat(sandwich, 1.15, player, 0);
+    };
+
+    setsandwichesPerSecond(calculateSandwichesPerSecond(sandwichLevel, playerLevel))
+  }, [sandwichLevel, playerLevel]);
+
+  return sandwichesPerSecond;
+};

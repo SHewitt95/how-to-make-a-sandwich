@@ -8,7 +8,7 @@ const createAchievementList = (sandwichCount, state) => {
     if (achievement.threshold && achievement.threshold > sandwichCount) return null;
     if (achievement.taskCompleted && !achievement.taskCompleted(state)) return null;
     return (
-      <li>{achievement.text}</li>
+      <li key={achievement.text}>{achievement.text}</li>
     );
   });
 }

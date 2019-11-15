@@ -12,4 +12,12 @@ export const Menu = {
   MEAT: 'Meat',
 };
 
+export const MenuMultipliers = {
+  BREAD: 1,
+  CONDIMENTS: 1.25,
+  CHEESE: 1.75,
+  VEGETABLES: 2.75,
+  MEAT: 4.75,
+};
+
 export const MAX_NUMBER = 7700000000;

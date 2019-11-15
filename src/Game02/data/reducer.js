@@ -3,6 +3,7 @@ import { Actions } from './_utils/constants';
 const reducer = (state, action) => {
   switch (action.type) {
     case Actions.MAKE_SANDWICH:
+      console.log(action.payload);
       return {
         ...state,
         peopleCount: state.peopleCount -= (action.payload || 1),
@@ -15,6 +16,7 @@ const reducer = (state, action) => {
       };
 
     case Actions.UPGRADE_MENU_ITEM:
+      console.log(state.menuItems)
       return {
         ...state,
         menuItems: {

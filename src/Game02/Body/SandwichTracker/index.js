@@ -1,8 +1,9 @@
 import React from 'react';
+import { useSandwichesPerSecondRate } from '../hooks';
 
 const SandwichTracker = () => {
   return (
-    <p>Tracker</p>
+    <p>Sandwiches made per second: {useSandwichesPerSecondRate()}</p>
   );
 }
 
