@@ -4,8 +4,6 @@ import { useThreshold, useCurrentSandwichCount, useAutoPlayerLevelUpdate } from 
 import Context from '../../data/context';
 import { Actions } from '../../data/_utils/constants';
 
-
-
 const UpgradeStepper = () => {
   const [, dispatch] = useContext(Context);
 

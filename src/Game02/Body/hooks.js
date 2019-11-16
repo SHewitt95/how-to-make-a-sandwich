@@ -1,15 +1,15 @@
 import { useState, useContext, useEffect, useRef } from 'react';
 import Context from '../data/context';
-import { MAX_NUMBER, Actions, Menu, MenuMultipliers } from '../data/_utils/constants';
+import { MAX_NUMBER, Actions, Menu, MenuMultipliers, INTERVAL_TIME, PER_SECOND_DIVISOR, FLOATING_POINT, SANDWICH_MULTIPLIER, BASE_PROGRESS_BAR_THRESHOLD, THRESHOLD_MULTIPLIER } from '../data/_utils/constants';
 import { calculateScalePriceFloat } from './helpers';
 
 
 export const useThreshold = () => {
-  const [threshold, setThreshold] = useState(10);
+  const [threshold, setThreshold] = useState(BASE_PROGRESS_BAR_THRESHOLD);
   const [state] = useContext(Context);
 
   useEffect(() => {
-    setThreshold(calculateScalePriceFloat(10, 2, state.playerLevel, 0));
+    setThreshold(calculateScalePriceFloat(BASE_PROGRESS_BAR_THRESHOLD, THRESHOLD_MULTIPLIER, state.playerLevel, FLOATING_POINT));
   }, [state.playerLevel]);
 
   return threshold;
@@ -57,7 +57,7 @@ export const useSandwichesPerSecondRate = () => {
 
   useEffect(() => {
     const calculateSandwichesPerSecond = (sandwich, player) => {
-      return calculateScalePriceFloat(player, 1.15, sandwich, 0);
+      return calculateScalePriceFloat(player, SANDWICH_MULTIPLIER, sandwich, FLOATING_POINT);
       // return calculateScalePriceFloat(sandwich, 1.15, player, 0);
     };
 
@@ -94,7 +94,7 @@ export const useAutoSandwichMaker = () => {
 
   useInterval(() => {
     if (sandwichesPerSecond > 0) {
-      dispatch({ type: Actions.MAKE_SANDWICH, payload: sandwichesPerSecond/100 });
+      dispatch({ type: Actions.MAKE_SANDWICH, payload: sandwichesPerSecond/PER_SECOND_DIVISOR });
     }
-  }, 10);
+  }, INTERVAL_TIME);
 }
