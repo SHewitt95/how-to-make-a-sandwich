@@ -20,7 +20,7 @@ const UpgradeStepper = () => {
       <ProgressBar maxValue={threshold} currentValue={currentValue} valueName="Sandwich Count" />
       <button disabled={currentValue < threshold} onClick={() => {
         dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
-      }}>Ask for help!</button>
+      }}>Grow more arms!</button>
     </>
   );
 }

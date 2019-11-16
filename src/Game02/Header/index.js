@@ -17,7 +17,7 @@ const Header = () => {
       <h1>how to make a sandwich</h1>
       <p>Goal: Make a sandwich for everyone. Literally.</p>
       <Timer />
-      <p>people without a sandwich: {numberWithCommas(flooredCount)}</p>
+      <p>People without a sandwich: {numberWithCommas(flooredCount)}</p>
     </header>
   );
 }

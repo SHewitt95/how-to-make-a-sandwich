@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import Context from '../data/context';
 import { MAX_NUMBER, Actions, Menu, MenuMultipliers } from '../data/_utils/constants';
 import { calculateScalePriceFloat } from './helpers';
@@ -66,3 +66,35 @@ export const useSandwichesPerSecondRate = () => {
 
   return sandwichesPerSecond;
 };
+
+// https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+export const useInterval = (callback, delay) => {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+};
+
+export const useAutoSandwichMaker = () => {
+  const [, dispatch] = useContext(Context);
+  const sandwichesPerSecond = useSandwichesPerSecondRate();
+
+  useInterval(() => {
+    if (sandwichesPerSecond > 0) {
+      dispatch({ type: Actions.MAKE_SANDWICH, payload: sandwichesPerSecond/100 });
+    }
+  }, 10);
+}

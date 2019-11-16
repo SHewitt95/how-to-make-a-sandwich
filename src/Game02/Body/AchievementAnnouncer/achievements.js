@@ -1,35 +1,31 @@
 const achievements = [
   {
     taskCompleted: state => state.playerLevel >= 1,
-    text: "Oh, you made a friend! Let's name it Joel.",
+    text: "Always good to have an extra set of hands. That's, what, 20 fingers?",
   },
   {
     taskCompleted: state => state.playerLevel >= 5,
-    text: "You've got quite a few friends now: 5!",
+    text: "Sure, why not 10 more hands? The more the merrier!",
   },
   {
     taskCompleted: state => state.playerLevel >= 10,
-    text: "You're so popular. 10 friends?!",
+    text: "Okay buddy. 20 extra hands seem excessive.",
   },
   {
     taskCompleted: state => state.playerLevel >= 15,
-    text: "15 friends, huh? Sometimes, I wish I had some...",
+    text: "You must really like making sandwiches, with those 30 extra hands.",
   },
   {
     taskCompleted: state => state.playerLevel >= 20,
-    text: "20 friends. You have 20 friends. Okay.",
+    text: "Hello, police? There's a many-handed monster here. How many hands? 40 extra!",
   },
   {
-    taskCompleted: state => state.playerLevel >= 25,
-    text: "You know what? I'm happy for you. You and your 25 friends.",
+    taskCompleted: state => state.playerLevel >= 50,
+    text: "Ever read Frankenstein? Mary Shelley may have some thoughts on your 100 hands.",
   },
   {
-    taskCompleted: state => state.playerLevel >= 30,
-    text: "Is it me? How I smell? I couldn't imagine having the 30 friends you have.",
-  },
-  {
-    taskCompleted: state => state.playerLevel >= 35,
-    text: "I mean, I'm just a stream of text. Why would 35 friends want to know a stream of text?",
+    taskCompleted: state => state.playerLevel >= 100,
+    text: "200 hands. Aight, imma head out.",
   },
   {
     threshold: 10,
@@ -70,6 +66,10 @@ const achievements = [
   {
     threshold: 3850000000,
     text: '3.85 Billion Sandwiches! Halfway there!'
+  },
+  {
+    threshold: 7700000000,
+    text: "You've done it: 7.7 Billion sandwiches. World Hunger is no more!"
   },
 ];
 

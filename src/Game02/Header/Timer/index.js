@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useInterval } from '../../Body/HelpersList';
+import { useInterval } from '../../Body/hooks';
 
 const getPlural = (number = 0, pluralForm = 's') => `${number === 1 ? '' : pluralForm}`;
 
