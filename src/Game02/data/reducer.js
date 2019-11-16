@@ -16,7 +16,6 @@ const reducer = (state, action) => {
       };
 
     case Actions.UPGRADE_MENU_ITEM:
-      console.log(state.menuItems)
       return {
         ...state,
         menuItems: {
@@ -27,6 +26,12 @@ const reducer = (state, action) => {
           },
         },
       };
+
+    case Actions.ACTIVATE_AUTO_ARMS:
+      return {
+        ...state,
+        autoPlayerLevelActive: true,
+      }
 
     default:
       return state;

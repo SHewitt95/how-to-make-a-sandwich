@@ -1,7 +1,7 @@
 const achievements = [
   {
     taskCompleted: state => state.playerLevel >= 1,
-    text: "Always good to have an extra set of hands. That's, what, 20 fingers?",
+    text: "Always good to have an extra set of hands.",
   },
   {
     taskCompleted: state => state.playerLevel >= 5,

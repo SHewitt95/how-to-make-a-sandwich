@@ -97,4 +97,9 @@ export const useAutoSandwichMaker = () => {
       dispatch({ type: Actions.MAKE_SANDWICH, payload: sandwichesPerSecond/PER_SECOND_DIVISOR });
     }
   }, INTERVAL_TIME);
+};
+
+export const usePlayerLevel = () => {
+  const [state] = useContext(Context);
+  return state.playerLevel;
 }
