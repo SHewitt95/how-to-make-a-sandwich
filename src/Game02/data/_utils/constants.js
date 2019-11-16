@@ -22,8 +22,9 @@ export const MenuMultipliers = {
 
 export const MAX_NUMBER = 7700000000;
 
+const SECOND = 1000;
 export const INTERVAL_TIME = 10;
-export const PER_SECOND_DIVISOR = 100;
+export const PER_SECOND_DIVISOR = SECOND/INTERVAL_TIME;
 export const FLOATING_POINT = 0;
 export const SANDWICH_MULTIPLIER = 1.15;
 export const BASE_PROGRESS_BAR_THRESHOLD = 20;
