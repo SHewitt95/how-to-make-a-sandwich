@@ -26,6 +26,15 @@ ol li * {
   width: 100%;
 }
 
+button {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
 #peopleLeft {
   font-size: 2rem;
+}
+
+.makeSandwich-section {
+  margin-bottom: 1rem;
 }
