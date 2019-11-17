@@ -41,7 +41,7 @@ const MenuItem = ({ itemName, cooldownTime }) => {
         {state === STATES.COOLDOWN && `Getting better ${itemName}...`}
         {state === STATES.IDLE && `Upgrade ${itemName}`}
       </button>
-      <ProgressBar maxValue={cooldownTime} currentValue={tick} valueName={`${itemName} Progress`} />
+      <ProgressBar maxValue={cooldownTime || 1} currentValue={tick} valueName={`${itemName} Progress`} />
     </li>
   );
 };
