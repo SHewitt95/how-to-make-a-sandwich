@@ -25,7 +25,8 @@ const MenuItem = ({ itemName, cooldownTime }) => {
         dispatch({ type: Actions.UPGRADE_MENU_ITEM, payload: 1, itemName });
         setState(STATES.COOLDOWN);
       }}>
-        {itemName}
+        {state === STATES.COOLDOWN && `Getting better ${itemName}...`}
+        {state === STATES.IDLE && `Upgrade ${itemName}`}
       </button>
     </li>
   );
