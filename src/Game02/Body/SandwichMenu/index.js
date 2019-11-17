@@ -30,7 +30,7 @@ const SandwichMenu = () => {
         {Object.keys(Menu).map(name => {
           const item = Menu[name];
           const itemInState = state.menuItems[item]
-          if (playerLevel < UNLOCK_LEVEL[item]) return <LockedItem itemName={item} levelsRemaining={UNLOCK_LEVEL[item] - playerLevel} />;
+          if (playerLevel < UNLOCK_LEVEL[item]) return <LockedItem key={`locked-${item}`} itemName={item} levelsRemaining={UNLOCK_LEVEL[item] - playerLevel} />;
           return (
             <MenuItem cooldownTime={COOLDOWN_TIMES[item] * (1.15 * itemInState.level)} key={`SandwichMenu_${item}`} itemName={item} />
           );

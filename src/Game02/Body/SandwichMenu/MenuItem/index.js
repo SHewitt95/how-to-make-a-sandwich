@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
+import ProgressBar from '../../ArmsUpgrader/ProgressBar';
 import Context from '../../../data/context';
 import { Actions } from '../../../data/_utils/constants';
+import { useInterval } from '../../hooks';
 
 const STATES = {
   IDLE: 'idle',
@@ -10,6 +12,7 @@ const STATES = {
 const MenuItem = ({ itemName, cooldownTime }) => {
   const [, dispatch] = useContext(Context);
   const [state, setState] = useState(STATES.IDLE);
+  const [tick, setTick] = useState(0);
 
   // https://upmostly.com/tutorials/settimeout-in-react-components-using-hooks
   useEffect(() => {
@@ -18,6 +21,16 @@ const MenuItem = ({ itemName, cooldownTime }) => {
     }, cooldownTime);
     return () => clearTimeout(timer);
   }, [cooldownTime, state]);
+
+  useInterval(() => {
+      setTick(tick + 1000)
+  }, 1000);
+
+  useInterval(() => {
+    if (state === STATES.IDLE) {
+      setTick(0)
+    }
+  }, 10);
 
   return (
     <li>
@@ -28,6 +41,7 @@ const MenuItem = ({ itemName, cooldownTime }) => {
         {state === STATES.COOLDOWN && `Getting better ${itemName}...`}
         {state === STATES.IDLE && `Upgrade ${itemName}`}
       </button>
+      {state === STATES.COOLDOWN && <ProgressBar maxValue={cooldownTime} currentValue={tick} valueName={`${itemName} Progress`} />}
     </li>
   );
 };
