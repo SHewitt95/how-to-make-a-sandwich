@@ -1,5 +1,6 @@
 const DefaultState = {
   peopleCount: 7700000000, // World population, approximately
+  isGameActive: true,
   playerLevel: 0,
   sandwichesPerSecond: 0,
   autoPlayerLevelActive: false,

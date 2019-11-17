@@ -3,7 +3,13 @@ import { Actions } from './_utils/constants';
 const reducer = (state, action) => {
   switch (action.type) {
     case Actions.MAKE_SANDWICH:
-      console.log(action.payload);
+      if (state.peopleCount - action.payload <= 0) {
+        return {
+          ...state,
+          isGameActive: false,
+          peopleCount: 0,
+        }
+      }
       return {
         ...state,
         peopleCount: state.peopleCount -= (action.payload || 1),

@@ -91,9 +91,10 @@ export const useInterval = (callback, delay) => {
 export const useAutoSandwichMaker = () => {
   const [, dispatch] = useContext(Context);
   const sandwichesPerSecond = useSandwichesPerSecondRate();
+  const isGameActive = useIsGameActive();
 
   useInterval(() => {
-    if (sandwichesPerSecond > 0) {
+    if (sandwichesPerSecond > 0 && isGameActive) {
       dispatch({ type: Actions.MAKE_SANDWICH, payload: sandwichesPerSecond/PER_SECOND_DIVISOR });
     }
   }, INTERVAL_TIME);
@@ -102,4 +103,9 @@ export const useAutoSandwichMaker = () => {
 export const usePlayerLevel = () => {
   const [state] = useContext(Context);
   return state.playerLevel;
+}
+
+export const useIsGameActive = () => {
+  const [state] = useContext(Context);
+  return state.isGameActive;
 }

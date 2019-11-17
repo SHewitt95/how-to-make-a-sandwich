@@ -7,7 +7,9 @@ const SandwichButton = () => {
   const [, dispatch] = useContext(Context);
   useAutoSandwichMaker();
   return (
-    <button onClick={() => dispatch({ type: Actions.MAKE_SANDWICH })}>make a sandwich</button>
+    <section>
+      <button onClick={() => dispatch({ type: Actions.MAKE_SANDWICH })}>make a sandwich</button>
+    </section>
   );
 }
 
