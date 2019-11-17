@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/how-to-make-a-sandwich/precache-manifest.829b6d6b7c26634573cc8f0ce0df854c.js"
+  "/how-to-make-a-sandwich/precache-manifest.42bc1dfd1a161091abaab06bcb87d544.js"
 );
 
 self.addEventListener('message', (event) => {

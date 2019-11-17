@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/how-to-make-a-sandwich/static/css/main.89352419.chunk.css",
-    "main.js": "/how-to-make-a-sandwich/static/js/main.f863449f.chunk.js",
-    "main.js.map": "/how-to-make-a-sandwich/static/js/main.f863449f.chunk.js.map",
+    "main.css": "/how-to-make-a-sandwich/static/css/main.27f34657.chunk.css",
+    "main.js": "/how-to-make-a-sandwich/static/js/main.23c1d1b0.chunk.js",
+    "main.js.map": "/how-to-make-a-sandwich/static/js/main.23c1d1b0.chunk.js.map",
     "runtime-main.js": "/how-to-make-a-sandwich/static/js/runtime-main.0cfef1eb.js",
     "runtime-main.js.map": "/how-to-make-a-sandwich/static/js/runtime-main.0cfef1eb.js.map",
     "static/js/2.b579ec66.chunk.js": "/how-to-make-a-sandwich/static/js/2.b579ec66.chunk.js",
     "static/js/2.b579ec66.chunk.js.map": "/how-to-make-a-sandwich/static/js/2.b579ec66.chunk.js.map",
     "index.html": "/how-to-make-a-sandwich/index.html",
-    "precache-manifest.829b6d6b7c26634573cc8f0ce0df854c.js": "/how-to-make-a-sandwich/precache-manifest.829b6d6b7c26634573cc8f0ce0df854c.js",
+    "precache-manifest.42bc1dfd1a161091abaab06bcb87d544.js": "/how-to-make-a-sandwich/precache-manifest.42bc1dfd1a161091abaab06bcb87d544.js",
     "service-worker.js": "/how-to-make-a-sandwich/service-worker.js",
-    "static/css/main.89352419.chunk.css.map": "/how-to-make-a-sandwich/static/css/main.89352419.chunk.css.map"
+    "static/css/main.27f34657.chunk.css.map": "/how-to-make-a-sandwich/static/css/main.27f34657.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.0cfef1eb.js",
     "static/js/2.b579ec66.chunk.js",
-    "static/css/main.89352419.chunk.css",
-    "static/js/main.f863449f.chunk.js"
+    "static/css/main.27f34657.chunk.css",
+    "static/js/main.23c1d1b0.chunk.js"
   ]
 }

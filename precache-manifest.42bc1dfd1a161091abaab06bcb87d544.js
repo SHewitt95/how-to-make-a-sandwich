@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "853d0e6f326d0102e003c6321f6d2436",
+    "revision": "3499eb36a659528fa4d9165c4731612a",
     "url": "/how-to-make-a-sandwich/index.html"
   },
   {
-    "revision": "750a1525dcd201028263",
-    "url": "/how-to-make-a-sandwich/static/css/main.89352419.chunk.css"
+    "revision": "e26771fb849907c56cb7",
+    "url": "/how-to-make-a-sandwich/static/css/main.27f34657.chunk.css"
   },
   {
     "revision": "e1f90f2bacde7ef334d1",
     "url": "/how-to-make-a-sandwich/static/js/2.b579ec66.chunk.js"
   },
   {
-    "revision": "750a1525dcd201028263",
-    "url": "/how-to-make-a-sandwich/static/js/main.f863449f.chunk.js"
+    "revision": "e26771fb849907c56cb7",
+    "url": "/how-to-make-a-sandwich/static/js/main.23c1d1b0.chunk.js"
   },
   {
     "revision": "0eafa5fa1f231187b292",
