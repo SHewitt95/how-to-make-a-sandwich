@@ -18,6 +18,8 @@ const ArmsUpgrader = () => {
   useEffect(() => {
     if (currentValue >= BASE_PROGRESS_BAR_THRESHOLD) {
       setShowButton(true);
+    } else {
+      setShowButton(false);
     }
   }, [currentValue]);
 
