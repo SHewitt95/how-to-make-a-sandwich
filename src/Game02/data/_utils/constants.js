@@ -3,6 +3,7 @@ export const Actions = {
   UP_PLAYER_LEVEL: 'UP_PLAYER_LEVEL',
   UPGRADE_MENU_ITEM: 'UPGRADE_MENU_ITEM',
   ACTIVATE_AUTO_ARMS: 'ACTIVATE_AUTO_ARMS',
+  LOAD_GAME: 'LOAD_GAME',
 };
 
 export const Menu = {
@@ -14,7 +15,7 @@ export const Menu = {
 };
 
 export const MenuMultipliers = {
-  BREAD: 1,
+  BREAD: 1.15,
   CONDIMENTS: 1.25,
   CHEESE: 1.75,
   VEGETABLES: 2.75,

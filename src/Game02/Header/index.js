@@ -15,9 +15,9 @@ const Header = () => {
   return (
     <header>
       <h1>how to make a sandwich</h1>
-      <p>Goal: Make a sandwich for everyone. Literally.</p>
+      <p>Goal: Make a sandwich for everyone. <strong>Literally</strong>.</p>
       <Timer />
-      <p>People without a sandwich: {numberWithCommas(flooredCount)}</p>
+      <p>People without a sandwich: <span id="peopleLeft">{numberWithCommas(flooredCount)}</span></p>
     </header>
   );
 }

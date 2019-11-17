@@ -39,6 +39,12 @@ const reducer = (state, action) => {
         autoPlayerLevelActive: true,
       }
 
+    case Actions.LOAD_GAME:
+      return {
+        ...state,
+        ...action.payload,
+      }
+
     default:
       return state;
   }
