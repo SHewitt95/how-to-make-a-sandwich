@@ -53,7 +53,11 @@ const reducer = (state, action) => {
 
     case Actions.RESET_GAME:
       return {
+        ...state,
         ...DefaultState,
+        menuItems: {
+          ...DefaultState.menuItems,
+        }
       }
 
     default:

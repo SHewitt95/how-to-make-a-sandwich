@@ -14,6 +14,8 @@ const Body = () => {
   useEffect(() => {
     if (currentSandwichCount >= 100 || playerLevel >= 5) {
       setshowMenu(true);
+    } else {
+      setshowMenu(false);
     }
   }, [currentSandwichCount, playerLevel])
 
