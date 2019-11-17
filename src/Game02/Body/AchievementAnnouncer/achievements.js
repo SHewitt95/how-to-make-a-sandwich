@@ -5,27 +5,27 @@ const achievements = [
   },
   {
     taskCompleted: state => state.playerLevel >= 5,
-    text: "Sure, why not 10 more hands? The more the merrier!",
+    text: "Sure, why not 5 more hands? The more the merrier!",
   },
   {
     taskCompleted: state => state.playerLevel >= 10,
-    text: "Okay buddy. 20 extra hands seem excessive.",
+    text: "Okay buddy. 10 extra hands seem excessive.",
   },
   {
     taskCompleted: state => state.playerLevel >= 15,
-    text: "You must really like making sandwiches, with those 30 extra hands.",
+    text: "You must really like making sandwiches, with those 15 extra hands.",
   },
   {
     taskCompleted: state => state.playerLevel >= 20,
-    text: "Hello, police? There's a many-handed monster here. How many hands? 40 extra!",
+    text: "Hello, police? There's a many-handed monster here. How many hands? 20 extra!",
   },
   {
     taskCompleted: state => state.playerLevel >= 50,
-    text: "Ever read Frankenstein? Mary Shelley may have some thoughts on your 100 hands.",
+    text: "Ever read Frankenstein? Mary Shelley may have some thoughts on your 50 hands.",
   },
   {
     taskCompleted: state => state.playerLevel >= 100,
-    text: "200 hands. Aight, imma head out.",
+    text: "100 hands. Aight, imma head out.",
   },
   {
     threshold: 10,

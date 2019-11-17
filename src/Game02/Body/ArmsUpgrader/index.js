@@ -29,7 +29,7 @@ const ArmsUpgrader = () => {
         if (playerLevel >= 10 && !state.autoPlayerLevelActive) {
           dispatch({ type: Actions.ACTIVATE_AUTO_ARMS });
         }
-      }}>{playerLevel >= 10 && !state.autoPlayerLevelActive ? "Drink 'Automatic Arms Growth Potion'" : 'Grow more arms!'}</button>}
+      }}>{playerLevel >= 10 && !state.autoPlayerLevelActive ? "Drink 'Automatic Arms Growth Potion'" : 'Grow more hands!'}</button>}
     </>
   );
 }

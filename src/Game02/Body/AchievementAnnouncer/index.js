@@ -19,9 +19,13 @@ const AchievementAnnouncer = () => {
   const sandwichCount = MAX_NUMBER - peopleCount;
 
   return (
-    <ul>
-      {createAchievementList(sandwichCount, state)}
-    </ul>
+    <section>
+      <h2>Achievements</h2>
+      <p>Here's a running list of what you've achieved so far.</p>
+      <ul>
+        {createAchievementList(sandwichCount, state)}
+      </ul>
+    </section>
   );
 }
 
