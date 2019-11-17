@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/how-to-make-a-sandwich-game/static/css/main.89352419.chunk.css",
-    "main.js": "/how-to-make-a-sandwich-game/static/js/main.e15aae34.chunk.js",
-    "main.js.map": "/how-to-make-a-sandwich-game/static/js/main.e15aae34.chunk.js.map",
-    "runtime-main.js": "/how-to-make-a-sandwich-game/static/js/runtime-main.9287ab92.js",
-    "runtime-main.js.map": "/how-to-make-a-sandwich-game/static/js/runtime-main.9287ab92.js.map",
-    "static/js/2.b579ec66.chunk.js": "/how-to-make-a-sandwich-game/static/js/2.b579ec66.chunk.js",
-    "static/js/2.b579ec66.chunk.js.map": "/how-to-make-a-sandwich-game/static/js/2.b579ec66.chunk.js.map",
-    "index.html": "/how-to-make-a-sandwich-game/index.html",
-    "precache-manifest.703e825052c33e765cd06fccf854ec50.js": "/how-to-make-a-sandwich-game/precache-manifest.703e825052c33e765cd06fccf854ec50.js",
-    "service-worker.js": "/how-to-make-a-sandwich-game/service-worker.js",
-    "static/css/main.89352419.chunk.css.map": "/how-to-make-a-sandwich-game/static/css/main.89352419.chunk.css.map"
+    "main.css": "/how-to-make-a-sandwich/static/css/main.89352419.chunk.css",
+    "main.js": "/how-to-make-a-sandwich/static/js/main.f863449f.chunk.js",
+    "main.js.map": "/how-to-make-a-sandwich/static/js/main.f863449f.chunk.js.map",
+    "runtime-main.js": "/how-to-make-a-sandwich/static/js/runtime-main.0cfef1eb.js",
+    "runtime-main.js.map": "/how-to-make-a-sandwich/static/js/runtime-main.0cfef1eb.js.map",
+    "static/js/2.b579ec66.chunk.js": "/how-to-make-a-sandwich/static/js/2.b579ec66.chunk.js",
+    "static/js/2.b579ec66.chunk.js.map": "/how-to-make-a-sandwich/static/js/2.b579ec66.chunk.js.map",
+    "index.html": "/how-to-make-a-sandwich/index.html",
+    "precache-manifest.829b6d6b7c26634573cc8f0ce0df854c.js": "/how-to-make-a-sandwich/precache-manifest.829b6d6b7c26634573cc8f0ce0df854c.js",
+    "service-worker.js": "/how-to-make-a-sandwich/service-worker.js",
+    "static/css/main.89352419.chunk.css.map": "/how-to-make-a-sandwich/static/css/main.89352419.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.9287ab92.js",
+    "static/js/runtime-main.0cfef1eb.js",
     "static/js/2.b579ec66.chunk.js",
     "static/css/main.89352419.chunk.css",
-    "static/js/main.e15aae34.chunk.js"
+    "static/js/main.f863449f.chunk.js"
   ]
 }
