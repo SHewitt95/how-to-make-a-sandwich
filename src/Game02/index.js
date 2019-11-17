@@ -5,6 +5,7 @@ import Context from './data/context';
 import reducer from './data/reducer';
 import Header from './Header';
 import Body from './Body';
+import Footer from './Footer';
 import { useInterval } from './Body/hooks';
 
 const GAME_KEY = 'sandwich-game';
@@ -28,6 +29,7 @@ const Game02 = () => {
     <Context.Provider value={[state, dispatch]}>
       <Header />
       <Body />
+      <Footer />
     </Context.Provider>
   );
 };

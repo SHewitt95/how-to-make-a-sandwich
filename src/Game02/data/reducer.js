@@ -1,4 +1,5 @@
 import { Actions } from './_utils/constants';
+import DefaultState from './State';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -43,6 +44,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         ...action.payload,
+      }
+
+    case Actions.SAVE_GAME:
+      const saveState = JSON.stringify(state);
+      window.localStorage.setItem('sandwich-game', saveState);
+      return state;
+
+    case Actions.RESET_GAME:
+      return {
+        ...DefaultState,
       }
 
     default:

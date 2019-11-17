@@ -4,6 +4,8 @@ export const Actions = {
   UPGRADE_MENU_ITEM: 'UPGRADE_MENU_ITEM',
   ACTIVATE_AUTO_ARMS: 'ACTIVATE_AUTO_ARMS',
   LOAD_GAME: 'LOAD_GAME',
+  SAVE_GAME: 'SAVE_GAME',
+  RESET_GAME: 'RESET_GAME',
 };
 
 export const Menu = {
