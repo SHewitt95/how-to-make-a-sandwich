@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Button from '@material-ui/core/Button';
 import Context from '../../data/context';
 import { Actions } from '../../data/_utils/constants';
 import { useAutoSandwichMaker } from '../hooks';
@@ -8,7 +9,7 @@ const SandwichButton = () => {
   useAutoSandwichMaker();
   return (
     <section className="makeSandwich-section">
-      <button id="makeSandwich" onClick={() => dispatch({ type: Actions.MAKE_SANDWICH })}>make a sandwich</button>
+      <Button variant="contained" onClick={() => dispatch({ type: Actions.MAKE_SANDWICH })}>make a sandwich</Button>
     </section>
   );
 }

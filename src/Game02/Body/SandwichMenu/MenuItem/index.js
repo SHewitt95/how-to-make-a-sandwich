@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Button from '@material-ui/core/Button';
 import ProgressBar from '../../ArmsUpgrader/ProgressBar';
 import Context from '../../../data/context';
 import { Actions } from '../../../data/_utils/constants';
@@ -34,13 +35,13 @@ const MenuItem = ({ itemName, cooldownTime }) => {
 
   return (
     <li>
-      <button disabled={state === STATES.COOLDOWN} onClick={() => {
+      <Button variant="contained" disabled={state === STATES.COOLDOWN} onClick={() => {
         dispatch({ type: Actions.UPGRADE_MENU_ITEM, payload: 1, itemName });
         setState(STATES.COOLDOWN);
       }}>
         {state === STATES.COOLDOWN && `Getting better ${itemName}...`}
         {state === STATES.IDLE && `Upgrade ${itemName}`}
-      </button>
+      </Button>
       <ProgressBar maxValue={cooldownTime || 1} currentValue={tick} valueName={`${itemName} Progress`} />
     </li>
   );

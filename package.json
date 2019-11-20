@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://shewitt95.github.io/how-to-make-a-sandwich",
   "dependencies": {
+    "@material-ui/core": "^4.6.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0"

@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Button from '@material-ui/core/Button';
 import ProgressBar from './ProgressBar';
 import { useThreshold, useCurrentSandwichCount, useAutoPlayerLevelUpdate, usePlayerLevel } from '../hooks';
 import Context from '../../data/context';
@@ -25,12 +26,12 @@ const ArmsUpgrader = () => {
 
   return (
     <section>
-      {showButton && <button disabled={currentValue < threshold} onClick={() => {
+      {showButton && <Button variant="contained" disabled={currentValue < threshold} onClick={() => {
         dispatch({ type: Actions.UP_PLAYER_LEVEL, payload: 1 });
         if (playerLevel >= 10 && !state.autoPlayerLevelActive) {
           dispatch({ type: Actions.ACTIVATE_AUTO_ARMS });
         }
-      }}>{playerLevel >= 10 && !state.autoPlayerLevelActive ? "Drink 'Automatic Arms Growth Potion'" : 'Grow more hands!'}</button>}
+      }}>{playerLevel >= 10 && !state.autoPlayerLevelActive ? "Drink 'Automatic Arms Growth Potion'" : 'Grow more hands!'}</Button>}
       <ProgressBar maxValue={threshold} currentValue={currentValue} valueName="Sandwich Count" />
     </section>
   );

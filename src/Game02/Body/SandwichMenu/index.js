@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Button from '@material-ui/core/Button';
 import Context from '../../data/context';
 import MenuItem from './MenuItem';
 import { Menu } from '../../data/_utils/constants'
@@ -40,6 +41,6 @@ const SandwichMenu = () => {
   );
 };
 
-const LockedItem = ({ levelsRemaining, itemName }) => <li><button disabled={true}>{`You need ${levelsRemaining} more hand(s) to unlock ${itemName}`}</button></li>;
+const LockedItem = ({ levelsRemaining, itemName }) => <li><Button variant="contained" disabled={true}>{`You need ${levelsRemaining} more hand(s) to unlock ${itemName}`}</Button></li>;
 
 export default SandwichMenu;
