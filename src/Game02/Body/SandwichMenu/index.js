@@ -41,6 +41,6 @@ const SandwichMenu = () => {
   );
 };
 
-const LockedItem = ({ levelsRemaining, itemName }) => <li><Button variant="contained" disabled={true}>{`You need ${levelsRemaining} more hand(s) to unlock ${itemName}`}</Button></li>;
+const LockedItem = ({ levelsRemaining, itemName }) => <li><Button variant="contained" disabled={true}>{`You need ${levelsRemaining} more hand(s) to unlock ${itemName === 'Meat' ? 'Protein' : itemName}`}</Button></li>;
 
 export default SandwichMenu;

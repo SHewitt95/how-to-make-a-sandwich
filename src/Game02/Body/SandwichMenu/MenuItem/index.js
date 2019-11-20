@@ -33,16 +33,18 @@ const MenuItem = ({ itemName, cooldownTime }) => {
     }
   }, 10);
 
+  const realName = itemName === 'Meat' ? 'Protein' : itemName;
+
   return (
     <li>
       <Button variant="contained" disabled={state === STATES.COOLDOWN} onClick={() => {
         dispatch({ type: Actions.UPGRADE_MENU_ITEM, payload: 1, itemName });
         setState(STATES.COOLDOWN);
       }}>
-        {state === STATES.COOLDOWN && `Getting better ${itemName}...`}
-        {state === STATES.IDLE && `Upgrade ${itemName}`}
+        {state === STATES.COOLDOWN && `Getting better ${realName}...`}
+        {state === STATES.IDLE && `Upgrade ${realName}`}
       </Button>
-      <ProgressBar maxValue={cooldownTime || 1} currentValue={tick} valueName={`${itemName} Progress`} />
+      <ProgressBar maxValue={cooldownTime || 1} currentValue={tick} valueName={`${realName} Progress`} />
     </li>
   );
 };

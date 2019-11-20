@@ -5,7 +5,7 @@ import { numberWithCommas } from '../helpers'
 const SandwichesPerSecondTracker = () => {
   return (
     <>
-    <p>Sandwiches made per second: {numberWithCommas(useSandwichesPerSecondRate())}</p>
+    <p>Sandwiches made per second: <strong id="sps">{numberWithCommas(useSandwichesPerSecondRate())}</strong></p>
     <p>Number of extra hands: {numberWithCommas(usePlayerLevel())}</p>
     </>
   );

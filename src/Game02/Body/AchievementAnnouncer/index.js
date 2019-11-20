@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Typography from '@material-ui/core/Typography';
 import achievements from './achievements';
 import Context from '../../data/context';
 import { MAX_NUMBER } from '../../data/_utils/constants';
@@ -8,7 +9,7 @@ const createAchievementList = (sandwichCount, state) => {
     if (achievement.threshold && achievement.threshold > sandwichCount) return null;
     if (achievement.taskCompleted && !achievement.taskCompleted(state)) return null;
     return (
-      <li key={achievement.text}>{achievement.text}</li>
+      <li key={achievement.text}><Typography variant="body1" gutterBottom>{achievement.text}</Typography></li>
     );
   });
 }
